@@ -99,6 +99,22 @@ function genererQR() {
         return;
     }
 
+    const zone = document.getElementById('qr-zone');
+    zone.innerHTML = "";
+    
+    // Génération 100% locale dans le navigateur
+    new QRCode(zone, {
+        text: contenu,
+        width: 200,
+        height: 200,
+        colorDark: "#000000",
+        colorLight: "#ffffff"
+    });
+
+    zone.classList.remove('hidden');
+}
+
+
        const sousDomaine = "api.";
     const baseApi = "https://" + sousDomaine + "qrserver.com";
     const cheminApi = "/v1/create-qr-code/?size=220x220&data=";
